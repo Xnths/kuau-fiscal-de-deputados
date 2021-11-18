@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { Deputado } from '../models/deputado.model';
 
 @Component({
   selector: 'app-deputado-card',
@@ -6,26 +8,32 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./deputado-card.component.css']
 })
 export class DeputadoCardComponent implements OnInit {
-  deputados = [
-    {
-      nome: 'Jonathas Castilho',
-      estado: 'São Paulo',
-      partido: 'PT',
-    },
-    {
-      nome: 'Lucas Gabriel Sobrinho de Melo',
-      estado: 'Minas Gerais',
-      partido: 'PSDB',
-    }
-  ];
+  readonly apiURL : string;
+  list!: any;
+  deputados: any = [];
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+    this.apiURL = 'https://dadosabertos.camara.leg.br/api/v2'
+   }
 
   ngOnInit(): void {
-  }
+    this.http.get<Deputado>(`${this.apiURL}/deputados`, {
+      params:{
+        siglaSexo: 'M',
+        itens: 5,
+      }
+    })
+      .subscribe(Response => {
+        this.list = {...Response};
+        for(let i=0; i < 10; i++){
+          let dado = this.list.dados[i];
 
-  atualizar(): void {
-    this.deputados.push({nome: 'Maria Julia', estado: 'Alagoas', partido: 'PT'})
+          console.log(dado);
+
+          this.deputados.push({...dado});
+        }
+      })
+
   }
 
   apagar(): void {

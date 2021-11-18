@@ -1,6 +1,6 @@
 <div *ngFor="let deputado of deputados" class="deputado__card">
-  <div class="deputado__card--foto"></div>
-  <span class="deputado__card--nome"> {{deputado?.nome}} </span>
-  <span class="deputado__card--estado"> {{deputado?.estado}} </span>
-  <span class="deputado__card--partido"> {{deputado?.partido}} </span>
+  <img class="deputado__card--foto" src={{deputado.urlFoto}}>
+  <span class="deputado__card--nome"> {{deputado.nome}} </span>
+  <span class="deputado__card--estado"> {{deputado.siglaUf}} </span>
+  <span class="deputado__card--partido"> {{deputado.siglaPartido}} </span>
 </div>

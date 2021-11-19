@@ -1,5 +1,5 @@
-<div *ngFor="let deputado of deputados" class="deputado__card">
-  <img class="deputado__card--foto" src={{deputado.urlFoto}}>
+<div *ngFor="let deputado of deputados" class="deputado__card" (click)="detalharDeputado(deputado)">
+  <img class="deputado__card--foto foto" src={{deputado.urlFoto}}>
   <span class="deputado__card--nome"> {{deputado.nome}} </span>
   <span class="deputado__card--estado"> {{deputado.siglaUf}} </span>
   <span class="deputado__card--partido"> {{deputado.siglaPartido}} </span>

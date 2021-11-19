@@ -4,8 +4,9 @@
 </header>
 <body>
 <section class="deputados">
+  <app-deputado-perfil [deputadoUrl]="deputadoUrl"></app-deputado-perfil>
   <h2>Deputados</h2>
-  <app-deputado-card [pesquisaInfo]="pesquisaInfo" [pagina]="pagina"></app-deputado-card>
+  <app-deputado-card [pesquisaInfo]="pesquisaInfo" [pagina]="pagina" (aoDetalhar)="detalhar($event)"></app-deputado-card>
   <button (click)="mudarPagina($event)">Próxima página</button>
 </section>
 </body>

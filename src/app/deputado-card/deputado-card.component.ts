@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-deputado-card',
@@ -8,13 +8,16 @@ import { Component, Input, OnChanges, OnInit, Output, SimpleChanges } from '@ang
 })
 export class DeputadoCardComponent implements OnChanges {
   @Input() pesquisaInfo!: any;
+  @Input() pagina: number = 1;
+  @Output() aoDetalhar = new EventEmitter<any>();
 
   readonly apiURL : string;
 
   list!: any;
+
   deputados: any = [];
+  urlPerfil!:string;
   limite: number = 10;
-  @Input() pagina: number = 1;
 
   constructor(private http: HttpClient) {
     this.apiURL = 'https://dadosabertos.camara.leg.br/api/v2'
@@ -46,11 +49,15 @@ export class DeputadoCardComponent implements OnChanges {
         }
         console.log(Response);
       })
-      console.log(this.pagina);
   }
 
   limparPesquisa(){
     this.deputados = [];
+  }
+
+  detalharDeputado(deputado:any){
+    const url = deputado.uri;
+    this.aoDetalhar.emit(url);
   }
 
 }

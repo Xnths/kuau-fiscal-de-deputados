@@ -9,6 +9,7 @@ export class AppComponent {
   @Output() aoMudarPagina = new EventEmitter<any>();
 
   pesquisaInfo!: any;
+  deputadoUrl!: any;
   pagina: number = 1;
 
   title = 'kuau-fiscal-de-deputados';
@@ -31,5 +32,9 @@ export class AppComponent {
 
   recontarPaginaAtual(){
     this.pagina = 1;
+  }
+
+  detalhar($event: any){
+    this.deputadoUrl = $event;
   }
 }

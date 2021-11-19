@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-barra-pesquisa',
@@ -7,9 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarraPesquisaComponent implements OnInit {
 
-  constructor() { }
+  ativo: boolean = false;
+
+  constructor() {
+   }
 
   ngOnInit(): void {
+    console.log();
+  }
+
+  mostrarBarra(){
+    this.ativo = true;
+  }
+
+  esconderBarra(){
+    this.ativo = false;
+  }
+
+  isAtivo(){
+    let classe: string = "";
+
+    if(!this.ativo){
+      classe = "invisible";
+    }
+
+    return classe
   }
 
 }

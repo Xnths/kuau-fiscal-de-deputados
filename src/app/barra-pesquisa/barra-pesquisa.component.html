@@ -1,6 +1,7 @@
-<button class="barra-pesquisa__button button">Pesquisar</button>
+<button class="barra-pesquisa__pesquisar button" (click)="mostrarBarra()">Pesquisar</button>
 
-<section class="barra-pesquisa">
+<section class="barra-pesquisa {{isAtivo()}}">
+  <button (click)="esconderBarra()">X</button>
   <span class="barra-pesquisa__titulo">Pesquisa</span>
   <div class="barra-pesquisa__nome--container">
     <label for="nome" class="barra-pesquisa__nome--label label">Nome:</label>

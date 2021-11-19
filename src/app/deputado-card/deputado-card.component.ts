@@ -11,6 +11,7 @@ export class DeputadoCardComponent implements OnInit {
   readonly apiURL : string;
   list!: any;
   deputados: any = [];
+  limite: number = 10;
 
   constructor(private http: HttpClient) {
     this.apiURL = 'https://dadosabertos.camara.leg.br/api/v2'
@@ -20,12 +21,12 @@ export class DeputadoCardComponent implements OnInit {
     this.http.get<Deputado>(`${this.apiURL}/deputados`, {
       params:{
         siglaSexo: 'M',
-        itens: 5,
+        itens: this.limite,
       }
     })
       .subscribe(Response => {
         this.list = {...Response};
-        for(let i=0; i < 10; i++){
+        for(let i=0; i < this.limite; i++){
           let dado = this.list.dados[i];
 
           console.log(dado);

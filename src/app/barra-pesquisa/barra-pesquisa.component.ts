@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-barra-pesquisa',
@@ -6,6 +6,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./barra-pesquisa.component.css']
 })
 export class BarraPesquisaComponent implements OnInit {
+  @Output() aoPesquisar = new EventEmitter<any>();
+
   nome: string = '';
   estado: string = '';
   partido: string = '';
@@ -39,12 +41,14 @@ export class BarraPesquisaComponent implements OnInit {
   }
 
   pesquisar(){
-    console.log({
+    const pesquisaInfo = {
       nome: this.nome,
-      estado: this.estado,
-      partido: this.partido,
-      sexo: this.sexo,
-    })
+      siglaUf: this.estado,
+      siglaPartido: this.partido,
+      siglaSexo: this.sexo,
+    }
+
+    this.aoPesquisar.emit(pesquisaInfo);
   }
 
 }

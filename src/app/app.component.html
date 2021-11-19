@@ -1,10 +1,11 @@
 <header>
   <h1>Àgora</h1>
-  <app-barra-pesquisa></app-barra-pesquisa>
+  <app-barra-pesquisa (aoPesquisar)="pesquisar($event)"></app-barra-pesquisa>
 </header>
 <body>
 <section class="deputados">
   <h2>Deputados</h2>
-  <app-deputado-card></app-deputado-card>
+  <app-deputado-card [pesquisaInfo]="pesquisaInfo" [pagina]="pagina"></app-deputado-card>
+  <button (click)="mudarPagina($event)">Próxima página</button>
 </section>
 </body>

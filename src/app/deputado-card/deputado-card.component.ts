@@ -18,7 +18,7 @@ export class DeputadoCardComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.http.get<Deputado>(`${this.apiURL}/deputados`, {
+    this.http.get(`${this.apiURL}/deputados`, {
       params:{
         siglaSexo: 'M',
         itens: this.limite,
@@ -35,10 +35,6 @@ export class DeputadoCardComponent implements OnInit {
         }
       })
 
-  }
-
-  apagar(): void {
-    this.deputados = [];
   }
 
 }

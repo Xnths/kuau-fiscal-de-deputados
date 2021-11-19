@@ -29,6 +29,10 @@ export class BarraPesquisaComponent implements OnInit {
 
   esconderBarra(){
     this.ativo = false;
+    this.nome = "";
+    this.estado = "";
+    this.partido = "";
+    this.sexo = "";
     this.aoFecharPesquisa.emit(null);
   }
 

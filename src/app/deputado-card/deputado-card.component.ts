@@ -24,7 +24,6 @@ export class DeputadoCardComponent implements OnChanges {
    }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.limparPesquisa();
     this.getDeputados();
   }
 
@@ -42,17 +41,13 @@ export class DeputadoCardComponent implements OnChanges {
     })
       .subscribe(Response => {
         this.list = {...Response};
+        this.deputados = [];
         for(let i=0; i < this.limite; i++){
           let dado = this.list.dados[i];
 
           this.deputados.push({...dado});
         }
-        console.log(Response);
       })
-  }
-
-  limparPesquisa(){
-    this.deputados = [];
   }
 
   detalharDeputado(deputado:any){

@@ -22,6 +22,7 @@ export class DeputadoPerfilComponent implements OnChanges {
           let deputado = this.list.dados;
 
           this.deputado = ({
+            foto: deputado.ultimoStatus.urlFoto,
             nome: deputado.nomeCivil,
             dataNascimento: deputado.dataNascimento,
             sexo: this.definirSexo(deputado.sexo),
@@ -30,8 +31,6 @@ export class DeputadoPerfilComponent implements OnChanges {
             link: deputado.urlWebsite,
             partido: deputado.ultimoStatus.siglaPartido,
           });
-
-          console.log(this.deputado, Response)
         })
     }
   }

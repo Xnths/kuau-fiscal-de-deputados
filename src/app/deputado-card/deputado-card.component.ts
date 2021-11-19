@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { Deputado } from '../models/deputado.model';
 
 @Component({
   selector: 'app-deputado-card',
@@ -13,6 +12,8 @@ export class DeputadoCardComponent implements OnInit {
   deputados: any = [];
   limite: number = 10;
 
+  pesquisaInfo: any = {};
+
   constructor(private http: HttpClient) {
     this.apiURL = 'https://dadosabertos.camara.leg.br/api/v2'
    }
@@ -20,16 +21,13 @@ export class DeputadoCardComponent implements OnInit {
   ngOnInit(): void {
     this.http.get(`${this.apiURL}/deputados`, {
       params:{
-        siglaSexo: 'M',
-        itens: this.limite,
+        ...this.pesquisaInfo
       }
     })
       .subscribe(Response => {
         this.list = {...Response};
         for(let i=0; i < this.limite; i++){
           let dado = this.list.dados[i];
-
-          console.log(dado);
 
           this.deputados.push({...dado});
         }

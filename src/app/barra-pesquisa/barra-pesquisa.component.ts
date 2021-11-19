@@ -6,6 +6,10 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./barra-pesquisa.component.css']
 })
 export class BarraPesquisaComponent implements OnInit {
+  nome: string = '';
+  estado: string = '';
+  partido: string = '';
+  sexo: string = '';
 
   ativo: boolean = false;
 
@@ -32,6 +36,15 @@ export class BarraPesquisaComponent implements OnInit {
     }
 
     return classe
+  }
+
+  pesquisar(){
+    console.log({
+      nome: this.nome,
+      estado: this.estado,
+      partido: this.partido,
+      sexo: this.sexo,
+    })
   }
 
 }

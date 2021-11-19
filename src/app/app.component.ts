@@ -16,11 +16,20 @@ export class AppComponent {
   pesquisar($event: any){
     const pesquisa = {...$event}
     this.pesquisaInfo = pesquisa;
-    this.pagina = 1;
+    this.recontarPaginaAtual();
+  }
+
+  fecharPesquisa(){
+    this.pesquisaInfo = {};
+    this.recontarPaginaAtual();
   }
 
   mudarPagina($event: any){
     this.pagina++;
     this.aoMudarPagina.emit(this.pagina);
+  }
+
+  recontarPaginaAtual(){
+    this.pagina = 1;
   }
 }

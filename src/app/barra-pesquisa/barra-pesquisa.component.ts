@@ -7,6 +7,7 @@ import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '
 })
 export class BarraPesquisaComponent implements OnInit {
   @Output() aoPesquisar = new EventEmitter<any>();
+  @Output() aoFecharPesquisa = new EventEmitter<any>();
 
   nome: string = '';
   estado: string = '';
@@ -28,6 +29,7 @@ export class BarraPesquisaComponent implements OnInit {
 
   esconderBarra(){
     this.ativo = false;
+    this.aoFecharPesquisa.emit(null);
   }
 
   isAtivo(){

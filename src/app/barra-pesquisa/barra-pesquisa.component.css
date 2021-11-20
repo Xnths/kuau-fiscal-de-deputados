@@ -1,3 +1,7 @@
-.invisible{
-  display:none;
+.barra-pesquisa__pesquisar{
+  background-color: var(--azul-secundario);
+  border: none;
+  width: 100vw;
+  font-family: var(--font-family-righteous);
+  color: var(--font-color);
 }

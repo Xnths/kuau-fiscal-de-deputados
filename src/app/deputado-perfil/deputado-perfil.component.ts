@@ -7,6 +7,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
   styleUrls: ['./deputado-perfil.component.css']
 })
 export class DeputadoPerfilComponent implements OnChanges {
+  ativo!: boolean;
   deputado!: any;
   @Input() deputadoUrl!: any;
 
@@ -43,6 +44,10 @@ export class DeputadoPerfilComponent implements OnChanges {
       definicao = "Feminino"
     }
     return definicao
+  }
+
+  isAtivo(){
+    return ""
   }
 
 }

@@ -1,0 +1,17 @@
+:root{
+  --font-family-pacifico: 'Pacifico', cursive;
+  --font-family-righteous: 'Righteous', cursive;
+  --font-color: #EBEBEB;
+
+  --azul-primario: #1279AC;
+  --azul-secundario: #34ADEA;
+  --verde-primario: #62A739;
+  --verde-secundario: #80C658;
+  --amarelo-primario: #DCB518;
+  --amarelo-secundario: #EAC534;
+  --cinza-primario: #C4C4C4;
+  --cinza-secundario: #EBEBEB;
+  --cinza-terceario: #545454;
+  --vermelho-primario: #EB9486;
+  --vermelho-secundario: #7D0000;
+}

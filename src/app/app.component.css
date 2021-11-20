@@ -1,0 +1,8 @@
+h1 {
+  padding: 2rem;
+  background-color: #1279AC;
+  font-family: var(--font-family-pacifico);
+  font-size: 2rem;
+  text-align: center;
+  color: var(--font-color);
+}

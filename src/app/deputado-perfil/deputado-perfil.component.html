@@ -1,9 +1,9 @@
 <section class="perfil {{isAtivo()}}">
   <button class="perfil__fechar--button button" (click)="fecharPefil()" (click)="fecharPefil()">Fechar</button>
-  <h3 class="perfil__titulo">Perfil</h3>
+  <h3 class="perfil__titulo titulo">Perfil</h3>
   <img src={{deputado?.foto}} class="perfil__foto foto">
   <section class="perfil__informacoes-pessoais">
-    <h3 class="pefil__informacoes-pessoais--title">Informações Pessoais</h3>
+    <h3 class="pefil__informacoes-pessoais--titulo">Informações Pessoais</h3>
     <div class="pefil__nome">
       Nome: <span class="perfil__nome--text">{{deputado?.nome}}</span>
     </div>
@@ -15,7 +15,7 @@
     </div>
   </section>
   <section class="perfil__informacoes-politicas">
-    <h3 class="pefil__informacoes-politicas--title">Informações Políticas</h3>
+    <h3 class="pefil__informacoes-politicas--titulo titulo">Informações Políticas</h3>
     <div class="pefil__estado">
       Estado: <span class="perfil__estado--text">{{deputado?.estado}}</span>
     </div>
@@ -29,6 +29,30 @@
   <section class="perfil__partido">
     <div class="pefil__partido">
       Partido: <span class="perfil__partido--text">{{deputado?.partido}}</span>
+    </div>
+  </section>
+  <section class="perfil__ultimo-evento">
+    <h3 class="perfil__ultimo-evento--titulo titulo">Último Evento</h3>
+    <div class="pefil__tipo-evento--container">
+      Tipo de Evento: <span class="perfil__tipo-evento--span"></span>
+    </div>
+    <div class="pefil__data-inicio--container">
+      Data de Inicio: <span class="perfil__data-inicio--span"></span>
+    </div>
+    <div class="pefil__data-termino--container">
+      Data de Término: <span class="perfil__data-termino--span"></span>
+    </div>
+  </section>
+  <section class="perfil__proximo-evento">
+    <h3 class="perfil__proximo-evento--titulo titulo">Próximo Evento</h3>
+    <div class="pefil__tipo-evento--container">
+      Tipo de Evento: <span class="perfil__tipo-evento--span"></span>
+    </div>
+    <div class="pefil__data-inicio--container">
+      Data de Inicio: <span class="perfil__data-inicio--span"></span>
+    </div>
+    <div class="pefil__data-termino--container">
+      Data de Término: <span class="perfil__data-termino--span"></span>
     </div>
   </section>
 </section>

@@ -12,17 +12,20 @@ export class DeputadoPerfilComponent implements OnChanges {
 
   ativo!: boolean;
   deputado!: any;
+  deputadoEvento!: any;
 
-  list!: any;
+  listDeputado!: any;
+  listEventos!: any;
 
   constructor(private http: HttpClient) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if(this.deputadoUrl){
+      //Requisição /deputado/{id}
       this.http.get(this.deputadoUrl)
         .subscribe(Response => {
-          this.list = {...Response};
-          let deputado = this.list.dados;
+          this.listDeputado = {...Response};
+          let deputado = this.listDeputado.dados;
 
           this.deputado = ({
             foto: deputado.ultimoStatus.urlFoto,
@@ -34,6 +37,24 @@ export class DeputadoPerfilComponent implements OnChanges {
             link: deputado.urlWebsite,
             partido: deputado.ultimoStatus.siglaPartido,
           });
+        })
+      //Requisição /deputado/{id}/eventos
+      this.http.get(`${this.deputadoUrl}/eventos`, {
+        params:{
+          dataInicio: "2018-01-01",
+          itens: 2,
+          ordem: "desc",
+          ordenarPor: "dataHoraInicio"
+        }
+      })
+        .subscribe(Response => {
+          this.listEventos = {...Response}
+          let eventos = this.listEventos.dados;
+          console.log(eventos);
+
+          this.deputadoEvento = {
+
+          }
         })
     }
   }

@@ -1,7 +1,43 @@
+.barra-pesquisa{
+  font-family: var(--font-family-righteous);
+  padding: 0.8rem;
+  background-color: var(--azul-secundario);
+  color: var(--font-color);
+}
+
+.barra-pesquisa__container{
+  background: var(--cinza-terceario);
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0;
+}
+
+.barra-pesquisa__fechar{
+  background-color: var(--vermelho-primario);
+  color: var(--vermelho-secundario);
+}
+
+.input{
+  background-color: var(--cinza-terceario);
+  border-bottom: 2px solid var(--font-color);
+  margin: 0 0 0 0.5rem;
+  width: 60vw;
+}
+
 .barra-pesquisa__pesquisar{
   background-color: var(--azul-secundario);
   border: none;
   width: 100vw;
-  font-family: var(--font-family-righteous);
   color: var(--font-color);
+  padding: 0.5rem 0;
+}
+
+.barra-pesquisa__head{
+  display: flex;
+  justify-content: space-between;
+}
+
+.barra-pesquisa__buscar--button{
+  background-color: var(--azul-primario);
+  color: var(--font-color);
+  padding: 0.5rem 1rem;
 }

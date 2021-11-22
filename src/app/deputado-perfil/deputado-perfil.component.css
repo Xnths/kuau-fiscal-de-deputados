@@ -1,3 +1,6 @@
-.invisible{
-  display: none;
+.perfil__titulo{
+  font-family: var(--font-family-righteous);
+  font-size: 1rem;
+  color: var(--font-color-secundario  );
+  text-align: center;
 }

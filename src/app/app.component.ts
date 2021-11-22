@@ -6,11 +6,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  @Output() aoMudarPagina = new EventEmitter<any>();
+  @Output() aoDetalharPefil = new EventEmitter<any>();
 
   pesquisaInfo!: any;
   deputadoUrl!: any;
   pagina: number = 1;
+  ativo: boolean = true;
+  perfilAtivo: boolean = false;
 
   title = 'kuau-fiscal-de-deputados';
 
@@ -27,7 +29,6 @@ export class AppComponent {
 
   mudarPagina($event: any){
     this.pagina++;
-    this.aoMudarPagina.emit(this.pagina);
   }
 
   recontarPaginaAtual(){
@@ -36,5 +37,33 @@ export class AppComponent {
 
   detalhar($event: any){
     this.deputadoUrl = $event;
+    this.ativo = false;
+    this.perfilAtivo = true;
+    this.aoDetalharPefil.emit();
+  }
+
+  isAtivo(){
+    let classe = "";
+    if(!this.ativo){
+      classe = "invisible";
+    } else {
+      classe = "";
+    }
+    return classe;
+  }
+
+  isPerfilAtivo(){
+    let classe = "";
+    if(!this.perfilAtivo){
+      classe = "invisible";
+    } else {
+      classe = "";
+    }
+    return classe;
+  }
+
+  fecharPefil(){
+    this.perfilAtivo = false;
+    this.ativo = true;
   }
 }

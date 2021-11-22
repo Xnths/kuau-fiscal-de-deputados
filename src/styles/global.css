@@ -1,0 +1,17 @@
+.invisible{
+  display:none;
+}
+
+.input {
+  border: none;
+}
+
+.button{
+  border: none;
+  font-family: var(--font-family-righteous);
+}
+
+.foto{
+  max-width: 9rem;
+  height: 12rem;
+}

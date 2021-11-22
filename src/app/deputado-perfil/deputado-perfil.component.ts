@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-deputado-perfil',
@@ -7,9 +7,11 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
   styleUrls: ['./deputado-perfil.component.css']
 })
 export class DeputadoPerfilComponent implements OnChanges {
+  @Input() deputadoUrl!: any;
+  @Output() aoFecharPerfil = new EventEmitter();
+
   ativo!: boolean;
   deputado!: any;
-  @Input() deputadoUrl!: any;
 
   list!: any;
 
@@ -47,7 +49,23 @@ export class DeputadoPerfilComponent implements OnChanges {
   }
 
   isAtivo(){
-    return ""
+    let classe = ""
+    if(this.deputado == undefined){
+      classe = "invisible";
+    } else{
+      classe=""
+    }
+    return classe;
+  }
+
+  fecharPefil(){
+    this.ativo = false;
+
+    this.aoFecharPerfil.emit();
+  }
+
+  detalharPefil(){
+    this.ativo = true;
   }
 
 }

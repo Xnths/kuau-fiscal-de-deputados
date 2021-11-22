@@ -1,6 +1,75 @@
-.perfil__titulo{
+.perfil{
+  font-family: var(--font-family-righteous);
+  margin: 0 1rem;
+}
+
+.perfil__fechar--button{
+  width: 100%;
+  padding: 0.3rem;
+  background-color: var(--vermelho-primario);
+  color: var(--font-color);
+}
+
+.titulo{
   font-family: var(--font-family-righteous);
   font-size: 1rem;
-  color: var(--font-color-secundario  );
+  color: var(--font-color-secundario);
+  text-align: center;
+  padding: 1.3rem;
+}
+
+.texto{
+  color: #000;
+  margin: 0 0 0 0.5rem;
+}
+
+.container{
+  padding: 0.3rem 0.5rem;
+  color: var(--cinza-terceario);
+}
+
+.perfil__titulo{
+  text-decoration: underline;
+  font-size: 1.5rem;
+}
+
+.perfil__foto{
+  display: block;
+  margin: 1rem auto 0 auto;
+}
+
+.perfil__informacoes-pessoais{
+  display: inline;
+}
+
+.perfil__informacoes-pessoais--container{
+  background-color: var(--verde-secundario);
+}
+
+.perfil__informacoes-pessoais--titulo{
+  background-color: var(--verde-primario);
+}
+
+.perfil__informacoes-politicas--titulo{
+  background-color: var(--amarelo-primario);
+}
+
+.perfil__informacoes-politicas--container{
+  background-color: var(--amarelo-secundario);
+}
+
+.perfil__partido--container{
+  background-color: var(--azul-secundario);
   text-align: center;
 }
+
+.perfil__ultimo-evento--titulo{
+  margin: 1rem 0;
+  background-color: var(--cinza-secundario);
+}
+
+.perfil__proximo-evento--titulo{
+  background-color: var(--cinza-secundario);
+}
+
+

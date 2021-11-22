@@ -1,6 +1,6 @@
 .barra-pesquisa{
   font-family: var(--font-family-righteous);
-  padding: 0.8rem;
+  padding: 0.8rem 0 0 0;
   background-color: var(--azul-secundario);
   color: var(--font-color);
 }
@@ -8,7 +8,7 @@
 .barra-pesquisa__container{
   background: var(--cinza-terceario);
   padding: 0.8rem 1rem;
-  margin: 0.5rem 0;
+  margin: 0.5rem 0.5rem;
 }
 
 .barra-pesquisa__fechar{
@@ -39,5 +39,6 @@
 .barra-pesquisa__buscar--button{
   background-color: var(--azul-primario);
   color: var(--font-color);
-  padding: 0.5rem 1rem;
+  width: 100%;
+  padding: 1rem 0;
 }

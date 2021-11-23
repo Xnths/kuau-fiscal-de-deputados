@@ -1,0 +1,113 @@
+<button class="perfil__fechar--button button" (click)="fecharPefil()" (click)="fecharPefil()">Fechar</button>
+<section class="perfil {{isAtivo()}}">
+  <h2 class="perfil__titulo titulo">Perfil</h2>
+  <img src={{deputado?.foto}} class="perfil__foto foto">
+  <section class="perfil__informacoes-pessoais">
+    <h3 class="perfil__informacoes-pessoais--titulo titulo">Informações Pessoais</h3>
+    <div class="perfil__informacoes-pessoais--container container">
+      <div class="perfil__nome container">
+        Nome: <span class="perfil__nome--texto texto">{{deputado?.nome}}</span>
+      </div>
+      <div class="perfil__data-nascimento container">
+        Data de Nascimento: <span class="perfil__data-nascimento--texto texto">{{deputado?.dataNascimento}}</span>
+      </div>
+      <div class="perfil__sexo container">
+        Sexo:<span class="perfil__sexo--texto texto">{{deputado?.sexo}}</span>
+      </div>
+    </div>
+  </section>
+  <section class="perfil__informacoes-politicas">
+    <h3 class="perfil__informacoes-politicas--titulo titulo">Informações Políticas</h3>
+    <div class="perfil__informacoes-politicas--container container">
+      <div class="perfil__estado container">
+        Estado: <span class="perfil__estado--texto texto">{{deputado?.estado}}</span>
+      </div>
+      <div class="perfil__email container">
+        Email: <a href="" class="perfil__email--texto texto">{{deputado?.email}}</a>
+      </div>
+      <div class="perfil__link container">
+        Link: <span class="perfil__link--texto texto">{{deputado?.link}}</span>
+      </div>
+    </div>
+  </section>
+  <section class="perfil__partido">
+    <div class="perfil__partido--container container">
+      Partido: <span class="perfil__partido--texto texto">{{deputado?.partido}}</span>
+    </div>
+  </section>
+  <h2 class="perfil__titulo titulo">Agenda</h2>
+  <section class="perfil__ultimo-evento">
+    <h3 class="perfil__ultimo-evento--titulo titulo">Último Evento</h3>
+    <div class="perfil__ultimo-evento--container container">
+      <div class="perfil__tipo-evento container">
+      Tipo de Evento: <span class="perfil__tipo-evento--texto texto">{{deputadoUltimoEvento?.tipo}}</span>
+      </div>
+      <div class="perfil__data-inicio container">
+        Data de Inicio: <span class="perfil__data-inicio--texto texto">{{deputadoUltimoEvento?.inicio}} </span>
+      </div>
+      <div class="perfil__data-termino container">
+        Data de Término: <span class="perfil__data-termino--texto texto">{{deputadoUltimoEvento?.termino}}</span>
+      </div>
+      <div class="perfil__situacao container">
+        Situação: <span class="perfil__situacao--texto texto">{{deputadoUltimoEvento?.situacao}}</span>
+      </div>
+    </div>
+  </section>
+  <section class="perfil__proximo-evento">
+    <h3 class="perfil__proximo-evento--titulo titulo">Próximo Evento</h3>
+    <div class="perfil__proximo-evento--container container">
+        <div class="perfil__tipo-evento container">
+          Tipo de Evento: <span class="perfil__tipo-evento--texto texto">{{deputadoProximoEvento?.tipo}}</span>
+        </div>
+        <div class="perfil__data-inicio container">
+          Data de Inicio: <span class="perfil__data-inicio--texto texto">{{deputadoProximoEvento?.inicio}}</span>
+        </div>
+        <div class="perfil__situacao container">
+          Situacao: <span class="perfil__situacao--texto texto">{{deputadoProximoEvento?.situacao}}</span>
+        </div>
+    </div>
+  </section>
+  <h2 class="perfil__titulo titulo">Prestação de contas</h2>
+  <section class="perfil__ultima-despesa">
+    <h3 class="perfil__ultima-despesa--titulo titulo">Última despesa</h3>
+    <div class="perfil__ultima-despesa--container container">
+      <div class="perfil__tipo-despesa container">
+        Tipo: <span class="perfil__tipo-despesa--texto texto">{{deputadoUltimaDespesa?.tipo}}</span>
+      </div>
+      <div class="perfil__valor-despesa container">
+        Valor: <span class="perfil__valor-despesa--texto texto">{{deputadoUltimaDespesa?.valor}}</span>
+      </div>
+      <div class="perfil__data-despesa container">
+        Data: <span class="perfil__data-despesa--texto texto">{{deputadoUltimaDespesa?.data}}</span>
+      </div>
+    </div>
+  </section>
+  <section class="perfil__maior-despesa">
+    <h3 class="perfil__maior-despesa--titulo titulo">Maior despesa</h3>
+    <div class="perfil__maior-despesa--container container">
+      <div class="perfil__tipo-despesa container">
+        Tipo: <span class="perfil__tipo-despesa--texto texto">{{deputadoMaiorDespesa?.tipo}}</span>
+      </div>
+      <div class="perfil__valor-despesa container">
+        Valor: <span class="perfil__valor-despesa--texto texto">{{deputadoMaiorDespesa?.valor}}</span>
+      </div>
+      <div class="perfil__data-despesa container">
+        Data: <span class="perfil__data-despesa--texto texto">{{deputadoMaiorDespesa?.data}}</span>
+      </div>
+    </div>
+  </section>
+  <section class="perfil__despesas">
+    <h3 class="perfil__despesas--titulo titulo">Despesa</h3>
+    <div class="perfil__despesas--container container">
+      <div class="perfil__numero container">
+        Tipo: <span class="perfil__numero--texto texto"></span>
+      </div>
+      <div class="perfil__ano container">
+        Valor: <span class="perfil__ano--texto texto"></span>
+      </div>
+      <div class="perfil__emenda container">
+        Data: <span class="perfil__emenda--texto texto"></span>
+      </div>
+    </div>
+  </section>
+</section>

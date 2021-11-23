@@ -1,0 +1,37 @@
+.deputado__card{
+  width: 9rem;
+  margin: 0 1rem 1.5rem 1rem;
+}
+
+.deputado__card--nome{
+  background-color: var(--verde-secundario);
+  padding: 2rem 0;
+}
+
+.deputado__card--estado{
+  background-color: var(--amarelo-secundario);
+  font-size: 0.8rem;
+  padding: 0.2rem 0;
+}
+
+.deputado__card--partido{
+  background-color: var(--azul-secundario);
+  padding: 0.4rem 0;
+}
+
+.deputado__card--foto{
+  margin: 0;
+  padding: 0;
+}
+
+.info{
+  display: block;
+  text-align: center;
+  font-family: var(--font-family-righteous);
+}
+
+@media screen and (min-width: 950px){
+  .deputado__card{
+    width: 15rem;
+  }
+}

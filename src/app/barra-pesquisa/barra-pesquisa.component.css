@@ -1,0 +1,52 @@
+.barra-pesquisa{
+  font-family: var(--font-family-righteous);
+  background-color: var(--cinza-primario);
+  color: var(--font-color);
+}
+
+.barra-pesquisa__nome--input{
+  width: 40vw;
+}
+
+.barra-pesquisa__estado--input{
+  width: 10vw;
+}
+
+.barra-pesquisa__partido--input{
+  width: 10vw;
+}
+
+.container{
+  display: inline-block;
+  background: var(--cinza-terceario);
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0.5rem;
+}
+
+.barra-pesquisa__fechar{
+  width: 100%;
+  padding: 0.3rem;
+  background-color: var(--vermelho-primario);
+  color: var(--font-color);
+}
+
+.input{
+  background-color: var(--cinza-terceario);
+  border-bottom: 2px solid var(--font-color);
+  margin: 0 0 0 0.5rem;
+}
+
+.barra-pesquisa__pesquisar{
+  background-color: var(--azul-secundario);
+  border: none;
+  width: 100vw;
+  color: var(--font-color);
+  padding: 0.5rem 0;
+}
+
+.barra-pesquisa__buscar--button{
+  background-color: var(--azul-primario);
+  color: var(--font-color);
+  width: 100%;
+  padding: 1rem 0;
+}

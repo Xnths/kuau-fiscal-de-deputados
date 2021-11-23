@@ -42,7 +42,7 @@ export class DeputadoCardComponent implements OnChanges {
       .subscribe(Response => {
         this.list = {...Response};
         this.deputados = [];
-        for(let i=0; i < this.limite; i++){
+        for(let i=0; i < this.list.dados.length; i++){
           let dado = this.list.dados[i];
 
           this.deputados.push({...dado});

@@ -12,7 +12,8 @@ export class DeputadoPerfilComponent implements OnChanges {
 
   ativo!: boolean;
   deputado!: any;
-  deputadoEvento!: any;
+  deputadoUltimoEvento!: any;
+  deputadoProximoEvento!: any;
 
   listDeputado!: any;
   listEventos!: any;
@@ -30,7 +31,7 @@ export class DeputadoPerfilComponent implements OnChanges {
           this.deputado = ({
             foto: deputado.ultimoStatus.urlFoto,
             nome: deputado.nomeCivil,
-            dataNascimento: deputado.dataNascimento,
+            dataNascimento: this.getData(deputado.dataNascimento),
             sexo: this.definirSexo(deputado.sexo),
             estado: deputado.ultimoStatus.siglaUf,
             email: deputado.ultimoStatus.email,
@@ -41,6 +42,7 @@ export class DeputadoPerfilComponent implements OnChanges {
       //Requisição /deputado/{id}/eventos
       this.http.get(`${this.deputadoUrl}/eventos`, {
         params:{
+          //data da última eleição
           dataInicio: "2018-01-01",
           itens: 2,
           ordem: "desc",
@@ -50,12 +52,69 @@ export class DeputadoPerfilComponent implements OnChanges {
         .subscribe(Response => {
           this.listEventos = {...Response}
           let eventos = this.listEventos.dados;
-          console.log(eventos);
 
-          this.deputadoEvento = {
+          let ultimoEvento = this.getUltimoEvento(eventos);
 
+          this.deputadoUltimoEvento = {
+            tipo: ultimoEvento.descricaoTipo,
+            inicio: this.getData(ultimoEvento.dataHoraInicio),
+            termino: this.getData(ultimoEvento.dataHoraTermino),
+            situacao: ultimoEvento.situacao
+          }
+
+          this.deputadoProximoEvento = {
+            ...this.getProximoEvento(eventos)
           }
         })
+    }
+  }
+
+  getData(data: any){
+    let dataFormatada = "...";
+
+    if(data){
+      let pedacoData = data.substring(0, 10).split('-');
+      dataFormatada = `${pedacoData[2]}/${pedacoData[1]}/${pedacoData[0]}`;
+    }
+
+    return dataFormatada;
+  }
+
+  getUltimoEvento(eventos: any){
+    let data = new Date(eventos[0].dataHoraInicio);
+    let hoje = new Date();
+
+    if(data.getTime() > hoje.getTime()){
+      return eventos[1];
+    } else{
+      return eventos[0];
+    }
+  }
+
+  getProximoEvento(eventos: any){
+    let data = new Date(eventos[0].dataHoraInicio)
+    let hoje = new Date();
+
+    let proximo;
+
+    if(data.getTime() > hoje.getTime()){
+      proximo = eventos[0];
+    } else {
+      proximo = undefined;
+    }
+
+    if(proximo){
+      return {
+        tipo: proximo.descricaoTipo,
+        inicio: this.getData(proximo.dataHoraInicio),
+        termino: this.getData(proximo.dataHoraTermino)
+      }
+    } else {
+      return {
+        tipo: "...",
+        inicio: "...",
+        situacao: "...",
+      }
     }
   }
 

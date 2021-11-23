@@ -39,13 +39,16 @@
     <h3 class="perfil__ultimo-evento--titulo titulo">Último Evento</h3>
     <div class="perfil__ultimo-evento--contianer container">
       <div class="perfil__tipo-evento container">
-      Tipo de Evento: <span class="perfil__tipo-evento--texto texto"></span>
+      Tipo de Evento: <span class="perfil__tipo-evento--texto texto">{{deputadoUltimoEvento?.tipo}}</span>
       </div>
       <div class="perfil__data-inicio container">
-        Data de Inicio: <span class="perfil__data-inicio--texto texto"></span>
+        Data de Inicio: <span class="perfil__data-inicio--texto texto">{{deputadoUltimoEvento?.inicio}} </span>
       </div>
       <div class="perfil__data-termino container">
-        Data de Término: <span class="perfil__data-termino--texto texto"></span>
+        Data de Término: <span class="perfil__data-termino--texto texto">{{deputadoUltimoEvento?.termino}}</span>
+      </div>
+      <div class="perfil__situacao container">
+        Situação: <span class="perfil__situacao--texto texto">{{deputadoUltimoEvento?.situacao}}</span>
       </div>
     </div>
   </section>
@@ -53,13 +56,13 @@
     <h3 class="perfil__proximo-evento--titulo titulo">Próximo Evento</h3>
     <div class="perfil__proximo-evento--container container">
       <div class="perfil__tipo-evento container">
-        Tipo de Evento: <span class="perfil__tipo-evento--texto texto"></span>
+        Tipo de Evento: <span class="perfil__tipo-evento--texto texto">{{deputadoProximoEvento?.tipo}}</span>
       </div>
       <div class="perfil__data-inicio container">
-        Data de Inicio: <span class="perfil__data-inicio--texto texto"></span>
+        Data de Inicio: <span class="perfil__data-inicio--texto texto">{{deputadoProximoEvento?.inicio}}</span>
       </div>
-      <div class="perfil__data-termino container">
-        Data de Término: <span class="perfil__data-termino--texto texto"></span>
+      <div class="perfil__situacao container">
+        Situacao: <span class="perfil__situacao--texto texto">{{deputadoProximoEvento?.situacao}}</span>
       </div>
     </div>
   </section>

@@ -1,6 +1,6 @@
 <button class="perfil__fechar--button button" (click)="fecharPefil()" (click)="fecharPefil()">Fechar</button>
 <section class="perfil {{isAtivo()}}">
-  <h3 class="perfil__titulo titulo">Perfil</h3>
+  <h2 class="perfil__titulo titulo">Perfil</h2>
   <img src={{deputado?.foto}} class="perfil__foto foto">
   <section class="perfil__informacoes-pessoais">
     <h3 class="perfil__informacoes-pessoais--titulo titulo">Informações Pessoais</h3>
@@ -35,6 +35,7 @@
       Partido: <span class="perfil__partido--texto texto">{{deputado?.partido}}</span>
     </div>
   </section>
+  <h2 class="perfil__titulo titulo">Agenda</h2>
   <section class="perfil__ultimo-evento">
     <h3 class="perfil__ultimo-evento--titulo titulo">Último Evento</h3>
     <div class="perfil__ultimo-evento--contianer container">
@@ -64,6 +65,43 @@
       <div class="perfil__situacao container">
         Situacao: <span class="perfil__situacao--texto texto">{{deputadoProximoEvento?.situacao}}</span>
       </div>
+    </div>
+  </section>
+  <h2 class="perfil__titulo titulo">Prestação de contas</h2>
+  <section class="perfil__ultima-despesa">
+    <h3 class="perfil__ultima-despesa--titulo titulo">Última despesa</h3>
+    <div class="perfil__tipo-despesa container">
+      Tipo: <span class="perfil__tipo-despesa--texto texto"></span>
+    </div>
+    <div class="perfil__valor-despesa container">
+      Valor: <span class="perfil__valor-despesa--texto texto"></span>
+    </div>
+    <div class="perfil__data-despesa container">
+      Data: <span class="perfil__data-despesa--texto texto"></span>
+    </div>
+  </section>
+  <section class="perfil__maior-despesa">
+    <h3 class="perfil__maior-despesa--titulo titulo">Maior despesa</h3>
+    <div class="perfil__tipo-despesa container">
+      Tipo: <span class="perfil__tipo-despesa--texto texto"></span>
+    </div>
+    <div class="perfil__valor-despesa container">
+      Valor: <span class="perfil__valor-despesa--texto texto"></span>
+    </div>
+    <div class="perfil__data-despesa container">
+      Data: <span class="perfil__data-despesa--texto texto"></span>
+    </div>
+  </section>
+  <section class="perfil__despesas">
+    <h3 class="perfil__despesas--titulo titulo">Despesa</h3>
+    <div class="perfil__numero container">
+      Número: <span class="perfil__numero--texto texto"></span>
+    </div>
+    <div class="perfil__ano container">
+      Ano: <span class="perfil__ano--texto texto"></span>
+    </div>
+    <div class="perfil__emenda container">
+      Emenda: <span class="perfil__emenda--texto texto"></span>
     </div>
   </section>
 </section>

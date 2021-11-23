@@ -72,4 +72,18 @@
   background-color: var(--cinza-secundario);
 }
 
+.perfil__ultima-despesa--titulo{
+  background-color: var(--verde-primario);
+}
 
+.perfil__maior-despesa--titulo{
+  background-color: var(--amarelo-primario);
+}
+
+.perfil__despesas--titulo{
+  background-color: var(--azul-primario);
+}
+
+.perfil__despesas{
+  border-bottom: 1px solid black;
+}

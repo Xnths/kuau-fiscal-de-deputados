@@ -1,10 +1,7 @@
 <button class="barra-pesquisa__pesquisar button" (click)="mostrarBarra()">Pesquisar</button>
 
 <form (ngSubmit)="pesquisar()" class="barra-pesquisa {{isAtivo()}}">
-  <div class="barra-pesquisa__head">
-    <span class="barra-pesquisa__titulo">Pesquisa</span>
-    <button class="barra-pesquisa__fechar button" (click)="esconderBarra()">X</button>
-  </div>
+  <button class="barra-pesquisa__fechar button" (click)="esconderBarra()">Fechar</button>
   <div class="barra-pesquisa__container">
     <label for="nome" class="barra-pesquisa__nome--label label">Nome:</label>
     <input type="text" class="barra-pesquisa__nome--input input" name="nome" [(ngModel)]="nome">

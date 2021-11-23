@@ -1,7 +1,6 @@
 .barra-pesquisa{
   font-family: var(--font-family-righteous);
-  padding: 0.8rem 0 0 0;
-  background-color: var(--azul-secundario);
+  background-color: var(--cinza-primario);
   color: var(--font-color);
 }
 
@@ -12,8 +11,10 @@
 }
 
 .barra-pesquisa__fechar{
+  width: 100%;
+  padding: 0.3rem;
   background-color: var(--vermelho-primario);
-  color: var(--vermelho-secundario);
+  color: var(--font-color);
 }
 
 .input{
@@ -29,11 +30,6 @@
   width: 100vw;
   color: var(--font-color);
   padding: 0.5rem 0;
-}
-
-.barra-pesquisa__head{
-  display: flex;
-  justify-content: space-between;
 }
 
 .barra-pesquisa__buscar--button{

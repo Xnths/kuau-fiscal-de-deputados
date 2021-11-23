@@ -3,8 +3,19 @@
   flex-wrap: wrap;
 }
 
+.button{
+  padding: 0.5rem;
+  color: var(--font-color);
+}
+
+.deputados__volta{
+  width: 50%;
+  background-color: var(--azul-primario);
+}
+
 .deputados__proximo{
-  margin: 0 35vw;
+  width: 50%;
+  background-color: var(--azul-secundario);
 }
 
 .deputados {

@@ -4,7 +4,20 @@
   color: var(--font-color);
 }
 
-.barra-pesquisa__container{
+.barra-pesquisa__nome--input{
+  width: 40vw;
+}
+
+.barra-pesquisa__estado--input{
+  width: 10vw;
+}
+
+.barra-pesquisa__partido--input{
+  width: 10vw;
+}
+
+.container{
+  display: inline-block;
   background: var(--cinza-terceario);
   padding: 0.8rem 1rem;
   margin: 0.5rem 0.5rem;
@@ -21,7 +34,6 @@
   background-color: var(--cinza-terceario);
   border-bottom: 2px solid var(--font-color);
   margin: 0 0 0 0.5rem;
-  width: 60vw;
 }
 
 .barra-pesquisa__pesquisar{

@@ -29,3 +29,9 @@
   text-align: center;
   font-family: var(--font-family-righteous);
 }
+
+@media screen and (min-width: 950px){
+  .deputado__card{
+    width: 15rem;
+  }
+}

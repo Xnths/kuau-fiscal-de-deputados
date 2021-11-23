@@ -31,6 +31,12 @@ export class AppComponent {
     this.pagina++;
   }
 
+  voltarPagina($event: any){
+    if(this.pagina > 1){
+      this.pagina--;
+    }
+  }
+
   recontarPaginaAtual(){
     this.pagina = 1;
   }

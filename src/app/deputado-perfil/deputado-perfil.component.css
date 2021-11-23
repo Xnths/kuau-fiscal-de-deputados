@@ -28,6 +28,15 @@
   color: var(--cinza-terceario);
 }
 
+@media screen and (min-width: 950px){
+  .container{
+    margin: 0 2rem;
+  }
+  .titulo{
+    margin: 0 2rem;
+  }
+}
+
 .perfil__titulo{
   text-decoration: underline;
   font-size: 1.5rem;
@@ -64,7 +73,6 @@
 }
 
 .perfil__ultimo-evento--titulo{
-  margin: 1rem 0;
   background-color: var(--cinza-secundario);
 }
 

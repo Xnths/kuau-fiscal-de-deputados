@@ -15,10 +15,14 @@ export class DeputadoPerfilComponent implements OnChanges {
   deputadoUltimoEvento!: any;
   deputadoProximoEvento!: any;
   deputadoUltimaDespesa!: any;
+  deputadoMaiorDespesa!: any;
+  deputadoDespesas!: any;
 
   listDeputado!: any;
   listEventos!: any;
   listUltimaDespesa!: any;
+  listMaiorDespesa!: any;
+  listDespesas!: any;
 
   constructor(private http: HttpClient) { }
 
@@ -72,7 +76,7 @@ export class DeputadoPerfilComponent implements OnChanges {
       this.http.get(`${this.deputadoUrl}/despesas`, {
         params: {
           itens: 1,
-          ordenarPor: "valorDocumento"
+          ordenarPor: "dataDocumento"
         }
       })
         .subscribe(Response => {
@@ -83,6 +87,24 @@ export class DeputadoPerfilComponent implements OnChanges {
             tipo: despesa.tipoDespesa,
             valor: this.formatarValor(despesa.valorDocumento),
             data: this.getData(despesa.dataDocumento)
+          }
+        })
+      //Requisição para maior despesa /deputados/{id}/despesas
+      this.http.get(`${this.deputadoUrl}/despesas`, {
+        params: {
+          itens: 1,
+          ordenarPor: "valorDocumento",
+          ordem: "desc"
+        }
+      })
+        .subscribe(Response => {
+          this.listMaiorDespesa = {...Response};
+          let despesa = this.listMaiorDespesa.dados[0];
+
+          this.deputadoMaiorDespesa = {
+            tipo: despesa.tipoDespesa,
+            valor: this.formatarValor(despesa.valorDocumento),
+            data: this.getData(despesa.dataDocumento),
           }
         })
     }

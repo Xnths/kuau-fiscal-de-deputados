@@ -14,9 +14,11 @@ export class DeputadoPerfilComponent implements OnChanges {
   deputado!: any;
   deputadoUltimoEvento!: any;
   deputadoProximoEvento!: any;
+  deputadoUltimaDespesa!: any;
 
   listDeputado!: any;
   listEventos!: any;
+  listUltimaDespesa!: any;
 
   constructor(private http: HttpClient) { }
 
@@ -39,7 +41,7 @@ export class DeputadoPerfilComponent implements OnChanges {
             partido: deputado.ultimoStatus.siglaPartido,
           });
         })
-      //Requisição /deputado/{id}/eventos
+      //Requisição /deputados/{id}/eventos
       this.http.get(`${this.deputadoUrl}/eventos`, {
         params:{
           //data da última eleição
@@ -66,7 +68,29 @@ export class DeputadoPerfilComponent implements OnChanges {
             ...this.getProximoEvento(eventos)
           }
         })
+      //Requisição para última despesa /deputados/{id}/despesas
+      this.http.get(`${this.deputadoUrl}/despesas`, {
+        params: {
+          itens: 1,
+          ordenarPor: "valorDocumento"
+        }
+      })
+        .subscribe(Response => {
+          this.listUltimaDespesa = {...Response}
+          let despesa = this.listUltimaDespesa.dados[0];
+
+          this.deputadoUltimaDespesa = {
+            tipo: despesa.tipoDespesa,
+            valor: this.formatarValor(despesa.valorDocumento),
+            data: this.getData(despesa.dataDocumento)
+          }
+        })
     }
+  }
+
+  formatarValor(valor: any){
+    let valorFormatado = "R$ " + valor.toFixed(2);
+    return valorFormatado;
   }
 
   getData(data: any){

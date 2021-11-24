@@ -7,7 +7,7 @@
 <section class="deputados {{isDeputadosAtivo()}}">
   <h2 class="deputados__titulo">Deputados</h2>
   <app-deputado-card [pesquisaInfo]="pesquisaInfo" [pagina]="pagina" (aoDetalhar)="detalhar($event)" class="deputados__card"></app-deputado-card>
-  <div class="deputados__navegacao {{isNavegacaoAtiva()}}">
+  <div class="deputados__navegacao">
     <button (click)="voltarPagina($event)" class="deputados__volta button">Volta</button>
     <button (click)="mudarPagina($event)" class="deputados__proximo button">Próxima</button>
   </div>

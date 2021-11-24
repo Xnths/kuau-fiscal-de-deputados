@@ -17,7 +17,7 @@ export class DeputadoCardComponent implements OnChanges {
 
   deputados: any = [];
   urlPerfil!:string;
-  limite: number = 10;
+  limite: number = 6;
 
   constructor(private http: HttpClient) {
     this.apiURL = 'https://dadosabertos.camara.leg.br/api/v2'

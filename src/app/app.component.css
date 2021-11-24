@@ -1,6 +1,18 @@
 .deputados__card{
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 40vw 40vw;
+  width: fit-content;
+  margin: 1rem auto;
+  align-self: center;
+  justify-items: center;
+  row-gap: 1.5rem;
+  column-gap: 0.5rem;
+}
+
+@media screen and (min-width: 550px){
+  .deputados__card{
+    grid-template-columns: 33vw 33vw 33vw;
+  }
 }
 
 .button{
@@ -18,10 +30,6 @@
   background-color: var(--azul-secundario);
 }
 
-.deputados {
-padding: 0.5rem;
-}
-
 h1 {
   padding: 2rem;
   background-color: #1279AC;
@@ -35,7 +43,14 @@ h1 {
   font-family: var(--font-family-righteous);
   font-size: 1.5rem;
   text-align: center;
-  padding: 0 0 1rem 0;
+  padding: 1rem 0 0 0;
   color: var(--cinza-terceario);
   text-decoration: underline;
+}
+
+.deputados__navegacao{
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
 }

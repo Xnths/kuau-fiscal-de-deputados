@@ -13,14 +13,12 @@ export class AppComponent {
   pagina: number = 1;
   deputadosAtivo: boolean = true;
   perfilAtivo: boolean = false;
-  navegacaoAtiva: boolean = true;
 
   title = 'kuau-fiscal-de-deputados';
 
   pesquisar($event: any){
     const pesquisa = {...$event}
     this.pesquisaInfo = pesquisa;
-    this.navegacaoAtiva = false;
     this.recontarPaginaAtual();
   }
 
@@ -68,13 +66,8 @@ export class AppComponent {
     return this.isAtivo(this.perfilAtivo);
   }
 
-  isNavegacaoAtiva(){
-    return this.isAtivo(this.navegacaoAtiva);
-  }
-
   fecharPefil(){
     this.perfilAtivo = false;
     this.deputadosAtivo = true;
-    this.navegacaoAtiva = true;
   }
 }

@@ -39,7 +39,7 @@
 .barra-pesquisa__pesquisar{
   background-color: var(--azul-secundario);
   border: none;
-  width: 100vw;
+  width: 100%;
   color: var(--font-color);
   padding: 0.5rem 0;
 }

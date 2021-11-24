@@ -11,14 +11,16 @@ export class AppComponent {
   pesquisaInfo!: any;
   deputadoUrl!: any;
   pagina: number = 1;
-  ativo: boolean = true;
+  deputadosAtivo: boolean = true;
   perfilAtivo: boolean = false;
+  navegacaoAtiva: boolean = true;
 
   title = 'kuau-fiscal-de-deputados';
 
   pesquisar($event: any){
     const pesquisa = {...$event}
     this.pesquisaInfo = pesquisa;
+    this.navegacaoAtiva = false;
     this.recontarPaginaAtual();
   }
 
@@ -43,14 +45,14 @@ export class AppComponent {
 
   detalhar($event: any){
     this.deputadoUrl = $event;
-    this.ativo = false;
+    this.deputadosAtivo = false;
     this.perfilAtivo = true;
     this.aoDetalharPefil.emit();
   }
 
-  isAtivo(){
+  isAtivo(estado: any){
     let classe = "";
-    if(!this.ativo){
+    if(!estado){
       classe = "invisible";
     } else {
       classe = "";
@@ -58,18 +60,21 @@ export class AppComponent {
     return classe;
   }
 
+  isDeputadosAtivo(){
+    return this.isAtivo(this.deputadosAtivo);
+  }
+
   isPerfilAtivo(){
-    let classe = "";
-    if(!this.perfilAtivo){
-      classe = "invisible";
-    } else {
-      classe = "";
-    }
-    return classe;
+    return this.isAtivo(this.perfilAtivo);
+  }
+
+  isNavegacaoAtiva(){
+    return this.isAtivo(this.navegacaoAtiva);
   }
 
   fecharPefil(){
     this.perfilAtivo = false;
-    this.ativo = true;
+    this.deputadosAtivo = true;
+    this.navegacaoAtiva = true;
   }
 }

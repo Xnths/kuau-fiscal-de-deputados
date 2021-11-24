@@ -40,8 +40,8 @@ export class DeputadoPerfilComponent implements OnChanges {
             dataNascimento: this.getData(deputado.dataNascimento),
             sexo: this.definirSexo(deputado.sexo),
             estado: deputado.ultimoStatus.siglaUf,
-            email: deputado.ultimoStatus.email,
-            link: deputado.urlWebsite,
+            email: this.getEmail(deputado.ultimoStatus.email),
+            link: this.getLink(deputado.urlWebsite),
             partido: deputado.ultimoStatus.siglaPartido,
           });
         })
@@ -60,16 +60,37 @@ export class DeputadoPerfilComponent implements OnChanges {
           let eventos = this.listEventos.dados;
 
           let ultimoEvento = this.getUltimoEvento(eventos);
+          let proximoEvento = this.getProximoEvento(eventos);
 
-          this.deputadoUltimoEvento = {
-            tipo: ultimoEvento.descricaoTipo,
-            inicio: this.getData(ultimoEvento.dataHoraInicio),
-            termino: this.getData(ultimoEvento.dataHoraTermino),
-            situacao: ultimoEvento.situacao
+          if(ultimoEvento == undefined){
+            this.deputadoUltimoEvento = {
+              tipo: "...",
+              inicio: "...",
+              termino: "...",
+              situacao: "..."
+            }
+          } else {
+            this.deputadoUltimoEvento = {
+              tipo: ultimoEvento.descricaoTipo,
+              inicio: this.getData(ultimoEvento.dataHoraInicio),
+              termino: this.getData(ultimoEvento.dataHoraTermino),
+              situacao: ultimoEvento.situacao
+            }
           }
 
-          this.deputadoProximoEvento = {
-            ...this.getProximoEvento(eventos)
+          if(proximoEvento == undefined){
+            this.deputadoProximoEvento = {
+              tipo: "...",
+              inicio: "...",
+              termino: "...",
+              situacao: "..."
+            }
+          } else {
+            this.deputadoProximoEvento = {
+              tipo: proximoEvento.descricaoTipo,
+              inicio: this.getData(proximoEvento.dataHoraInicio),
+              termino: this.getData(proximoEvento.dataHoraTermino)
+            }
           }
         })
       //Requisição para última despesa /deputados/{id}/despesas
@@ -83,10 +104,18 @@ export class DeputadoPerfilComponent implements OnChanges {
           this.listUltimaDespesa = {...Response}
           let despesa = this.listUltimaDespesa.dados[0];
 
-          this.deputadoUltimaDespesa = {
-            tipo: despesa.tipoDespesa,
-            valor: this.formatarValor(despesa.valorDocumento),
-            data: this.getData(despesa.dataDocumento)
+          if(despesa == undefined){
+            this.deputadoUltimaDespesa = {
+              tipo: "...",
+              valor: "...",
+              data: "..."
+            }
+          } else {
+            this.deputadoUltimaDespesa = {
+              tipo: despesa.tipoDespesa,
+              valor: this.formatarValor(despesa.valorDocumento),
+              data: this.getData(despesa.dataDocumento)
+            }
           }
         })
       //Requisição para maior despesa /deputados/{id}/despesas
@@ -101,12 +130,36 @@ export class DeputadoPerfilComponent implements OnChanges {
           this.listMaiorDespesa = {...Response};
           let despesa = this.listMaiorDespesa.dados[0];
 
-          this.deputadoMaiorDespesa = {
-            tipo: despesa.tipoDespesa,
-            valor: this.formatarValor(despesa.valorDocumento),
-            data: this.getData(despesa.dataDocumento),
+          if(despesa == undefined){
+            this.deputadoMaiorDespesa = {
+              tipo: "...",
+              valor: "...",
+              data: "..."
+            }
+          } else{
+            this.deputadoMaiorDespesa = {
+              tipo: despesa.tipoDespesa,
+              valor: this.formatarValor(despesa.valorDocumento),
+              data: this.getData(despesa.dataDocumento),
+            }
           }
         })
+    }
+  }
+
+  getLink(link: any){
+    if(link == undefined){
+      return "...";
+    } else {
+      return link;
+    }
+  }
+
+  getEmail(email: any){
+    if(email == undefined) {
+      return "...";
+    } else {
+      return email;
     }
   }
 
@@ -127,6 +180,7 @@ export class DeputadoPerfilComponent implements OnChanges {
   }
 
   getUltimoEvento(eventos: any){
+    if(eventos.length == 0) return undefined
     let data = new Date(eventos[0].dataHoraInicio);
     let hoje = new Date();
 
@@ -138,29 +192,14 @@ export class DeputadoPerfilComponent implements OnChanges {
   }
 
   getProximoEvento(eventos: any){
+    if(eventos.length == 0) return undefined
     let data = new Date(eventos[0].dataHoraInicio)
     let hoje = new Date();
 
-    let proximo;
-
     if(data.getTime() > hoje.getTime()){
-      proximo = eventos[0];
+      return eventos[0];
     } else {
-      proximo = undefined;
-    }
-
-    if(proximo){
-      return {
-        tipo: proximo.descricaoTipo,
-        inicio: this.getData(proximo.dataHoraInicio),
-        termino: this.getData(proximo.dataHoraTermino)
-      }
-    } else {
-      return {
-        tipo: "...",
-        inicio: "...",
-        situacao: "...",
-      }
+      return undefined;
     }
   }
 

@@ -44,6 +44,12 @@
   padding: 0.5rem 0;
 }
 
+.barra-pesquisa__pesquisar:hover{
+  background-color: var(--azul-terceario);
+  transition: background-color 250ms;
+  cursor: pointer;
+}
+
 .barra-pesquisa__buscar--button{
   background-color: var(--azul-primario);
   color: var(--font-color);

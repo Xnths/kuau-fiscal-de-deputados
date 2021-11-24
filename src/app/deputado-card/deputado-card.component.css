@@ -2,6 +2,12 @@
   width: 9rem;
 }
 
+.deputado__card:hover{
+  cursor: pointer;
+  transform: scale(1.03);
+  transition: transform 250ms;
+}
+
 .deputado__card--nome{
   background-color: var(--verde-secundario);
   padding: 2rem 0;

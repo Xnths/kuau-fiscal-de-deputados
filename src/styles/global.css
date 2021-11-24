@@ -9,6 +9,7 @@
 .button{
   border: none;
   font-family: var(--font-family-righteous);
+  cursor: pointer;
 }
 
 .foto{
